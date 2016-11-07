@@ -1,0 +1,48 @@
+export default function (validation_id) {
+  var strVar = '';
+  strVar += '<div style="background-color:#f3f3f3;padding:40px 0">';
+  strVar += '';
+  strVar += '<div style="width:400px;margin:0 auto;background-color:#fff;font-family:Helvetica Neue,Helvetica,sans-serif;text-align:left;line-height:1.5em;border-radius:3px;padding:30px 30px 20px 30px;color:#666;font-size:16px">';
+  strVar += '';
+  strVar += '<p style="text-align:center;margin:10px 0 30px 0;padding:0">OnBoarding<\/p>';
+  strVar += '';
+  strVar += ' ';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p><strong>Hello!<\/strong><\/p>';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p>Thanks for signing up for OnBoarding. We’re excited for you to begin onboarding your team!<\/p>';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += `<p style="text-align:center;padding:10px 0"><a href="localhost:5001/signup/${validation_id}" style="background-color:#006dfe;border-radius:20px;padding:6px 18px;font-size:1em;font-weight:bold;color:#fff;text-decoration:none;display:inline-block" target="_blank">Set up your team now<\/a><\/p>`;
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p><strong>What is OnBoarding?<\/strong><\/p>';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p><a href="locahost:5001" style="color:#006dfe" target="_blank" >OnBoarding<\/a> is a super easy way to help onboard your team. It allows everyone to share and get the information they need.<\/p>';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p><strong>It\'s not just for HR.<\/strong> We recommend inviting your project managers, developers, engineers, producers and content strategists as well.<\/p>';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p>We hope you enjoy using OnBoarding. Please send ideas, bugs and requests to <a href="mailto:perryratcliff@gmail.com" style="color:#006dfe" target="_blank">someemail@gmail.com<\/a>, thanks!<\/p>';
+  strVar += '';
+  strVar += '';
+  strVar += '';
+  strVar += '<p>– the OnBoarding team<\/p>';
+  strVar += '';
+  strVar += '<\/div>';
+  strVar += `localhost:5001/create/${validation_id}`;
+  strVar += '<\/div>';
+
+  return strVar;
+}
