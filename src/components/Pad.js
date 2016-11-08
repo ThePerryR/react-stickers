@@ -43,6 +43,7 @@ function collect(connect, monitor) {
 class Pad extends Component {
   render() {
     const {connectDropTarget, stickers, isOver, options} = this.props;
+    const styles = options.styles || {};
     return connectDropTarget(
       <div
         style={Object.assign(
@@ -53,7 +54,7 @@ class Pad extends Component {
             top: 0,
             left: 0,
             overflow: options.overflowHidden ? 'hidden' : 'visible',
-            transition: 'all 0.32s ease'
+            ...styles
           },
           isOver ? options.hoverStyles : {}
           )}>
