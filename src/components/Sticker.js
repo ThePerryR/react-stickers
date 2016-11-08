@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default ({img, options}) => (
-  <img
-    src={img}
-    style={{
-      display: 'inherit',
-      maxWidth: options.stickerMaxSize || 'auto',
-      maxHeight: options.stickerMaxSize || 'auto'
-    }}
-  />
-);
+export default class Sticker extends Component {
+  render() {
+    return (
+      <img
+        src={this.props.img}
+        style={{
+          display: 'inherit',
+          maxWidth: this.props.options.stickerMaxSize || 'auto',
+          maxHeight: this.props.options.stickerMaxSize || 'auto'
+        }}
+      />
+    );
+  }
+}
