@@ -1,0 +1,29 @@
+{
+  "main": "app.js",
+  "scripts": {
+    "start": "watchify . -o bundle.js -v -d",
+    "build-js": "browserify app.js -o bundle.js",
+    "build-js-prod": "NODE_ENV=production browserify app.js | uglifyjs -cm > bundle.min.js",
+    "build-dev": "npm run build-js",
+    "build-prod": "npm run build-js-prod"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "envify"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.13.0",
+    "highlight.js": "^8.5.0",
+    "react-addons-update": "^15.3.2",
+    "react-dom": "^15.3.0"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "envify": "^3.4.1",
+    "uglify-js": "^2.7.0",
+    "watchify": "^3.7.0"
+  }
+}

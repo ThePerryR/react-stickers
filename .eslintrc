@@ -1,7 +1,8 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "import"
   ],
   "env": {
     "browser": true,
@@ -14,6 +15,10 @@
   },
   "ecmaFeatures": {
     "jsx": true
+    //"blockBindings": true
+  },
+  "settings": {
+    "import/resolver": "node"
   },
   "rules": {
     // Strict mode
