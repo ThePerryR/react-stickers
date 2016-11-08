@@ -8,13 +8,13 @@ import DraggableSticker from './DraggableSticker';
 
 const padTarget = {
   drop(props, monitor, component) {
-    const move = monitor.getSourceClientOffset();
+    const move = monitor.getDifferenceFromInitialOffset();
     const stickerItem = monitor.getItem();
     const previousSticker = props.stickers[stickerItem.index];
     const sticker = Object.assign({}, previousSticker);
     const pad = ReactDOM.findDOMNode(component);
-    sticker.x = move.x;
-    sticker.y = move.y;
+    sticker.x += move.x;
+    sticker.y += move.y;
     if (props.options.useBoundary) {
       if (sticker.x < 0) {
         sticker.x = 0;

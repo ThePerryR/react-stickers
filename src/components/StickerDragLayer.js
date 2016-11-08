@@ -11,8 +11,8 @@ class StickerDragLayer extends Component {
         <div
           style={{
             position: 'absolute',
-            top: this.props.currentOffset.y,
-            left: this.props.currentOffset.x
+            top: item.y + this.props.currentOffset.y,
+            left: item.x + this.props.currentOffset.x
           }}>
           <Sticker img={item.img} options={item.options}/>
         </div>
@@ -46,7 +46,7 @@ function collect(monitor) {
   return {
     item: monitor.getItem(),
     itemType: monitor.getItemType(),
-    currentOffset: monitor.getSourceClientOffset(),
+    currentOffset: monitor.getDifferenceFromInitialOffset(),
     isDragging: monitor.isDragging()
   };
 }

@@ -21,7 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "react-dnd": "^2.0.2",
-    "react-dnd-html5-backend": "^2.0.0"
+    "react-dnd-html5-backend": "^2.0.0",
+    "react-dom": "^15.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

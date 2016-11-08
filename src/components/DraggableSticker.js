@@ -14,6 +14,8 @@ const stickerSource = {
       width: stickerDOMNode.offsetWidth,
       height: stickerDOMNode.offsetHeight,
       img: props.img,
+      x: props.x,
+      y: props.y,
       options: props.options
     };
   }
