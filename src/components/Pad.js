@@ -52,7 +52,8 @@ class Pad extends Component {
             height: '100%',
             top: 0,
             left: 0,
-            overflow: options.overflowHidden ? 'hidden' : 'visible'
+            overflow: options.overflowHidden ? 'hidden' : 'visible',
+            transition: 'all 0.32s ease'
           },
           isOver ? options.hoverStyles : {}
           )}>
