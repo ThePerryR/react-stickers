@@ -42,17 +42,20 @@ function collect(connect, monitor) {
 
 class Pad extends Component {
   render() {
-    const {connectDropTarget, stickers, options} = this.props;
+    const {connectDropTarget, stickers, isOver, options} = this.props;
     return connectDropTarget(
       <div
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          top: 0,
-          left: 0,
-          overflow: options.overflowHidden ? 'hidden' : 'visible'
-        }}>
+        style={Object.assign(
+          {
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            overflow: options.overflowHidden ? 'hidden' : 'visible'
+          },
+          isOver ? options.hoverStyles : {}
+          )}>
         {stickers.map((sticker, i) => <DraggableSticker key={i} index={i} {...sticker} options={options}/>)}
       </div>
     );

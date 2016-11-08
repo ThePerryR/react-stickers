@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {DragDropContext} from 'react-dnd';
+import React, { Component, PropTypes } from 'react';
+import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import StickerDragLayer from './StickerDragLayer';
@@ -13,8 +13,8 @@ const DEFAULT_OPTIONS = {
 class StickerPad extends Component {
   render() {
     return (
-      <div style={{width: '100%', height: '100%', position: 'absolute'}}>
-        <Pad {...this.props} options={Object.assign({}, this.props.options, DEFAULT_OPTIONS)}/>
+      <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+        <Pad {...this.props} options={Object.assign({}, DEFAULT_OPTIONS, this.props.options)}/>
         <StickerDragLayer />
       </div>
     );
