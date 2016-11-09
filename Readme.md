@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-npm install react-soundplayer --save
+npm install react-stickers --save
 ```
 
 ```javascript
