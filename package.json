@@ -1,6 +1,6 @@
 {
   "name": "react-stickers",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Create draggable stickers with React",
   "main": "index.js",
   "directories": {
