@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import TouchBackend from 'react-dnd-touch-backend';
 
 import StickerDragLayer from './StickerDragLayer';
 import Pad from './Pad';
@@ -32,4 +32,4 @@ StickerPad.defaultProps = {
   stickers: []
 };
 
-export default DragDropContext(HTML5Backend)(StickerPad);
+export default DragDropContext(TouchBackend)(StickerPad);
