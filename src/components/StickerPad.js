@@ -32,4 +32,4 @@ StickerPad.defaultProps = {
   stickers: []
 };
 
-export default DragDropContext(TouchBackend)(StickerPad);
+export default DragDropContext(TouchBackend({ enableMouseEvents: true }))(StickerPad);

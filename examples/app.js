@@ -6,7 +6,8 @@ import update from 'react-addons-update';
 import StickerPad from '../lib/components/StickerPad';
 
 const STICKERS = [
-  { img: 'http://onespace.s3.amazonaws.com/wp-uploads/2015/11/icon-logo-round.svg', x: 0, y: 0 }
+  { img: 'https://www.teachok.com/stickers/logo-red.svg', x: 0, y: 0 },
+  { img: 'https://www.teachok.com/stickers/logo-grey.svg', x: 0, y: 0 }
 ];
 
 class App extends React.Component {
