@@ -39,7 +39,6 @@ class DraggableSticker extends Component {
 
   handleClick(e) {
     if (e.shiftKey) {
-      console.log('shift', this.props.index);
       this.props.handleRotate(this.props.index);
     }
   }
