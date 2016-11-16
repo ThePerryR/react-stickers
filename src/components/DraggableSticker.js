@@ -32,23 +32,20 @@ function collect(connect, monitor) {
 
 class DraggableSticker extends Component {
   componentDidMount() {
+    document.addEventListener('keydown', ::this.handleKeyPress, false);
     this.props.connectDragPreview(getEmptyImage(), {
       captureDraggingState: true
     });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', ::this.handleKeyPress, false);
   }
 
   handleKeyPress(e) {
     if (e.key === 'Shift') {
       this.props.handleRotate(this.props.index);
     }
-  }
-
-  componentWillMount() {
-    document.addEventListener('keydown', ::this.handleKeyPress, false);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', ::this.handleKeyPress, false);
   }
 
   render() {
