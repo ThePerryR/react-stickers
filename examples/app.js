@@ -7,7 +7,7 @@ import StickerPad from '../lib/components/StickerPad';
 
 const STICKERS = [
   { img: 'https://www.teachok.com/stickers/logo-red.svg', x: 0, y: 0 },
-  { img: 'https://www.teachok.com/stickers/logo-grey.svg', x: 0, y: 0 }
+  { img: 'https://www.teachok.com/stickers/logo-grey.svg', x: 0, y: 0, rotate: 20, }
 ];
 
 class App extends React.Component {

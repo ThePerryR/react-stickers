@@ -20,7 +20,6 @@ class Item extends Component {
 
   render() {
     const { item, currentOffset } = this.props;
-    console.log(this.state.mounted);
     return (
       <div>
         <div
@@ -28,7 +27,7 @@ class Item extends Component {
             position: 'absolute',
             top: item.y + currentOffset.y,
             left: item.x + currentOffset.x,
-            transform: `scale(${this.state.mounted ? 1.32 : 1})`,
+            transform: `scale(${this.state.mounted ? 1.32 : 1}) rotate(${item.rotate || 0}deg)`,
             transition: 'transform 0.12s ease-in-out',
           }}>
           <Sticker img={item.img} options={item.options}/>

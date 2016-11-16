@@ -7,7 +7,8 @@ import Pad from './Pad';
 
 const DEFAULT_OPTIONS = {
   overflowHidden: true,
-  useBoundary: true
+  useBoundary: true,
+  handleRotate: () => {},
 };
 
 class StickerPad extends Component {

@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import {DragSource} from 'react-dnd';
-import {getEmptyImage} from 'react-dnd-html5-backend';
+import { DragSource } from 'react-dnd';
+import { getEmptyImage } from 'react-dnd-html5-backend';
 
 import itemTypes from '../constants/itemTypes';
 import Sticker from './Sticker';
@@ -16,7 +16,8 @@ const stickerSource = {
       img: props.img,
       x: props.x,
       y: props.y,
-      options: props.options
+      rotate: props.rotate,
+      options: props.options,
     };
   }
 };
@@ -36,15 +37,30 @@ class DraggableSticker extends Component {
     });
   }
 
+  handleKeyPress(e) {
+    if (e.key === 'Shift') {
+      this.props.handleRotate(this.props.index);
+    }
+  }
+
+  componentWillMount() {
+    document.addEventListener('keydown', ::this.handleKeyPress, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', ::this.handleKeyPress, false);
+  }
+
   render() {
-    const {isDragging, connectDragSource, x, y, img, options} = this.props;
+    const { isDragging, connectDragSource, x, y, rotate, img, options } = this.props;
     return connectDragSource(
       <div
         style={{
           opacity: isDragging ? 0 : 1,
           position: 'absolute',
           left: x,
-          top: y
+          top: y,
+          transform: `rotate(${rotate || 0}deg)`,
         }}>
         <Sticker img={img} options={options}/>
       </div>
@@ -55,7 +71,8 @@ class DraggableSticker extends Component {
 DraggableSticker.propTypes = {
   img: PropTypes.string.isRequired,
   x: PropTypes.number.isRequired,
-  y: PropTypes.number.isRequired
+  y: PropTypes.number.isRequired,
+  handleRotate: PropTypes.func.isRequired,
 };
 DraggableSticker.defaultProps = {
   x: 0,

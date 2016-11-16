@@ -1,6 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import {DropTarget} from 'react-dnd';
+import { DropTarget } from 'react-dnd';
 
 import itemTypes from '../constants/itemTypes';
 import DraggableSticker from './DraggableSticker';
@@ -42,7 +42,7 @@ function collect(connect, monitor) {
 
 class Pad extends Component {
   render() {
-    const {connectDropTarget, stickers, isOver, options} = this.props;
+    const { connectDropTarget, stickers, isOver, options } = this.props;
     const styles = options.styles || {};
     return connectDropTarget(
       <div
@@ -57,8 +57,16 @@ class Pad extends Component {
             ...styles
           },
           isOver ? options.hoverStyles : {}
-          )}>
-        {stickers.map((sticker, i) => <DraggableSticker key={i} index={i} {...sticker} options={options}/>)}
+        )}>
+        {stickers.map((sticker, i) => (
+          <DraggableSticker
+            handleRotate={options.handleRotate}
+            key={i}
+            index={i}
+            options={options}
+            {...sticker}
+          />
+        ))}
       </div>
     );
   }
