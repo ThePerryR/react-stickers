@@ -6,7 +6,7 @@ import update from 'react-addons-update';
 import StickerPad from '../lib/components/StickerPad';
 
 const STICKERS = [
-  { img: 'https://www.teachok.com/stickers/logo-red.svg', x: 0, y: 0 },
+  { img: 'https://www.teachok.com/stickers/logo-red.svg', x: 0, y: 0, rotate: -20, },
   { img: 'https://www.teachok.com/stickers/logo-grey.svg', x: 0, y: 0, rotate: 20, }
 ];
 
@@ -27,7 +27,13 @@ class App extends React.Component {
             handleMoveSticker={(sticker, index) => {
               this.setState({ stickers: update(stickers, { [index]: { $merge: sticker } }) });
             }}
-            options={{ stickerMaxSize: 64 }}
+            options={{
+              stickerMaxSize: 64,
+              handleRotate: (index) => {
+                console.log(index);
+                this.setState({ stickers: update(stickers, { [index]: { $merge: { rotate: stickers[index].rotate + 10 } } }) });
+              }
+            }}
           />
         </div>
       </div>

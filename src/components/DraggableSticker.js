@@ -32,18 +32,14 @@ function collect(connect, monitor) {
 
 class DraggableSticker extends Component {
   componentDidMount() {
-    document.addEventListener('keydown', ::this.handleKeyPress, false);
     this.props.connectDragPreview(getEmptyImage(), {
       captureDraggingState: true
     });
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('keydown', ::this.handleKeyPress, false);
-  }
-
-  handleKeyPress(e) {
-    if (e.key === 'Shift') {
+  handleClick(e) {
+    if (e.shiftKey) {
+      console.log('shift', this.props.index);
       this.props.handleRotate(this.props.index);
     }
   }
@@ -58,7 +54,8 @@ class DraggableSticker extends Component {
           left: x,
           top: y,
           transform: `rotate(${rotate || 0}deg)`,
-        }}>
+        }}
+        onClick={::this.handleClick}>
         <Sticker img={img} options={options}/>
       </div>
     );
