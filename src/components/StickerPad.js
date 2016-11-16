@@ -13,6 +13,7 @@ const DEFAULT_OPTIONS = {
 
 class StickerPad extends Component {
   render() {
+    console.log(this.props.stickers, 1);
     return (
       <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
         <Pad {...this.props} options={Object.assign({}, DEFAULT_OPTIONS, this.props.options)}/>

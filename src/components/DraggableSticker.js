@@ -45,6 +45,7 @@ class DraggableSticker extends Component {
 
   render() {
     const { isDragging, connectDragSource, x, y, rotate, img, options } = this.props;
+    console.log(x, y, rotate);
     return connectDragSource(
       <div
         style={{
