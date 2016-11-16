@@ -1,27 +1,54 @@
-import React, {Component} from 'react';
-import {DragLayer} from 'react-dnd';
+import React, { Component } from 'react';
+import { DragLayer } from 'react-dnd';
 
 import Sticker from './Sticker';
 import itemTypes from '../constants/itemTypes';
+
+class Item extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mounted: false,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ mounted: true });
+    }, 0);
+  }
+
+  render() {
+    const { item, currentOffset } = this.props;
+    console.log(this.state.mounted);
+    return (
+      <div>
+        <div
+          style={{
+            position: 'absolute',
+            top: item.y + currentOffset.y,
+            left: item.x + currentOffset.x,
+            transform: `scale(${this.state.mounted ? 1.32 : 1})`,
+            transition: 'transform 0.12s ease-in-out',
+          }}>
+          <Sticker img={item.img} options={item.options}/>
+        </div>
+      </div>
+    );
+  }
+}
 
 class StickerDragLayer extends Component {
   renderItem(type, item) {
     if (type === itemTypes.STICKER) {
       return (
-        <div
-          style={{
-            position: 'absolute',
-            top: item.y + this.props.currentOffset.y,
-            left: item.x + this.props.currentOffset.x
-          }}>
-          <Sticker img={item.img} options={item.options}/>
-        </div>
+        <Item item={item} currentOffset={this.props.currentOffset}/>
       );
     }
   }
 
   render() {
-    const {isDragging, item, itemType, currentOffset} = this.props;
+    const { isDragging, item, itemType, currentOffset } = this.props;
     if (!isDragging || !currentOffset) {
       return null;
     }
