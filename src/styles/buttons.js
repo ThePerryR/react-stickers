@@ -1,6 +1,6 @@
-import {StyleSheet} from 'aphrodite';
+import {StyleSheet} from 'aphrodite'
 
-import colors from './colors';
+import colors from './colors'
 
 const button = {
   display: 'inline-block',
@@ -19,7 +19,7 @@ const button = {
     boxShadow: '0 0 3px rgba(0,0,0,0.08),0 3px 6px rgba(0,0,0,0.16)',
     transition: 'box-shadow 150ms cubic-bezier(0,0,.2,1)'
   }
-};
+}
 
 export default StyleSheet.create({
   large: {
@@ -56,4 +56,4 @@ export default StyleSheet.create({
   disabled: {
     background: '#D8D8D8'
   }
-});
+})

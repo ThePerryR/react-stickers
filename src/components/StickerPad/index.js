@@ -1,24 +1,25 @@
-import React, { Component, PropTypes } from 'react';
-import { DragDropContext } from 'react-dnd';
-import TouchBackend from 'react-dnd-touch-backend';
+import React, { Component } from 'react'
+import { DragDropContext } from 'react-dnd'
+import PropTypes from 'prop-types'
+import TouchBackend from 'react-dnd-touch-backend'
 
-import StickerDragLayer from './StickerDragLayer';
-import Pad from './Pad';
+import StickerDragLayer from '../StickerDragLayer'
+import Pad from '../Pad'
 
 const DEFAULT_OPTIONS = {
   overflowHidden: true,
   useBoundary: true,
-  handleRotate: () => {},
-};
+  handleRotate: () => {}
+}
 
 class StickerPad extends Component {
-  render() {
+  render () {
     return (
       <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
         <Pad {...this.props} options={Object.assign({}, DEFAULT_OPTIONS, this.props.options)}/>
         <StickerDragLayer />
       </div>
-    );
+    )
   }
 }
 
@@ -28,9 +29,9 @@ StickerPad.propTypes = {
     stickerMaxSize: PropTypes.number,
     overflowHidden: PropTypes.bool
   })
-};
+}
 StickerPad.defaultProps = {
   stickers: []
-};
+}
 
-export default DragDropContext(TouchBackend({ enableMouseEvents: true }))(StickerPad);
+export default DragDropContext(TouchBackend({ enableMouseEvents: true }))(StickerPad)

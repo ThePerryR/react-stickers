@@ -1,6 +1,6 @@
-import {StyleSheet} from 'aphrodite';
+import {StyleSheet} from 'aphrodite'
 
-import colors from './colors';
+import colors from './colors'
 
 export default StyleSheet.create({
   main: {
@@ -63,4 +63,4 @@ export default StyleSheet.create({
       border: `1px solid ${colors.highlight}`
     }
   }
-});
+})

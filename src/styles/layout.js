@@ -1,4 +1,4 @@
-import {StyleSheet} from 'aphrodite';
+import {StyleSheet} from 'aphrodite'
 
 export default StyleSheet.create({
   main: {
@@ -17,4 +17,4 @@ export default StyleSheet.create({
     width: 640,
     background: 'white'
   }
-});
+})

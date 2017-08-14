@@ -9,4 +9,4 @@ export default {
   border: '#D2D2D2',
   highlight: '#277CFF',
   positive: '#2CE429'
-};
+}
