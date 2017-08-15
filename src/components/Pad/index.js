@@ -1,47 +1,14 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import { DropTarget } from 'react-dnd'
 
-import itemTypes from '../constants/itemTypes'
-import DraggableSticker from './DraggableSticker'
-
-const padTarget = {
-  drop (props, monitor, component) {
-    const move = monitor.getDifferenceFromInitialOffset()
-    const stickerItem = monitor.getItem()
-    const previousSticker = props.stickers[stickerItem.index]
-    const sticker = Object.assign({}, previousSticker)
-    const pad = ReactDOM.findDOMNode(component)
-    sticker.x += move.x
-    sticker.y += move.y
-    if (props.options.useBoundary) {
-      if (sticker.x < 0) {
-        sticker.x = 0
-      }
-      if (sticker.y < 0) {
-        sticker.y = 0
-      }
-      if (sticker.x + stickerItem.width > pad.clientWidth) {
-        sticker.x = pad.offsetWidth - stickerItem.width
-      }
-      if (sticker.y + stickerItem.height > pad.clientHeight) {
-        sticker.y = pad.offsetHeight - stickerItem.height
-      }
-    }
-    props.handleMoveSticker(sticker, stickerItem.index, previousSticker)
-  }
-}
-
-function collect (connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
-  }
-}
+import itemTypes from '../../constants/itemTypes'
+import DraggableSticker from '../DraggableSticker'
 
 class Pad extends Component {
   render () {
-    const { connectDropTarget, stickers, isOver, options } = this.props
+    const {connectDropTarget, stickers, isOver, options} = this.props
     const styles = options.styles || {}
     return connectDropTarget(
       <div
@@ -71,11 +38,48 @@ class Pad extends Component {
   }
 }
 
+const padTarget = {
+  drop (props, monitor, component) {
+    const move = monitor.getDifferenceFromInitialOffset()
+    const stickerItem = monitor.getItem()
+    const previousSticker = props.stickers[stickerItem.index]
+    const sticker = Object.assign({}, previousSticker)
+    const pad = ReactDOM.findDOMNode(component)
+    console.log(component)
+    return console.log(pad)
+    sticker.x += move.x
+    sticker.y += move.y
+    if (props.options.useBoundary) {
+      if (sticker.x < 0) {
+        sticker.x = 0
+      }
+      if (sticker.y < 0) {
+        sticker.y = 0
+      }
+      if (sticker.x + stickerItem.width > pad.clientWidth) {
+        sticker.x = pad.offsetWidth - stickerItem.width
+      }
+      if (sticker.y + stickerItem.height > pad.clientHeight) {
+        sticker.y = pad.offsetHeight - stickerItem.height
+      }
+    }
+    props.handleMoveSticker(sticker, stickerItem.index, previousSticker)
+  }
+}
+
+function collect (connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  }
+}
+
 Pad.propTypes = {
   isOver: PropTypes.bool.isRequired,
   stickers: PropTypes.array.isRequired,
   stickerMaxSize: PropTypes.number,
   handleMoveSticker: PropTypes.func.isRequired
+  // props provided by react-dnd
 }
 
 export default DropTarget(itemTypes.STICKER, padTarget, collect)(Pad)

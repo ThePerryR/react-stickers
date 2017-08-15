@@ -1,1 +1,1 @@
-module.exports = require('./lib/components/StickerPad');
+module.exports = require('./lib/components/StickerPad')

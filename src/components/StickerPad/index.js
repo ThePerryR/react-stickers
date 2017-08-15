@@ -15,9 +15,12 @@ const DEFAULT_OPTIONS = {
 class StickerPad extends Component {
   render () {
     return (
-      <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
-        <Pad {...this.props} options={Object.assign({}, DEFAULT_OPTIONS, this.props.options)}/>
-        <StickerDragLayer />
+      <div style={{width: '100%', height: '100%', position: 'absolute'}}>
+        <Pad
+          handleMoveSticker={this.props.handleMoveSticker}
+          options={Object.assign({}, DEFAULT_OPTIONS, this.props.options)}
+        />
+        <StickerDragLayer/>
       </div>
     )
   }
@@ -28,10 +31,11 @@ StickerPad.propTypes = {
   options: PropTypes.shape({
     stickerMaxSize: PropTypes.number,
     overflowHidden: PropTypes.bool
-  })
+  }),
+  handleMoveSticker: PropTypes.func.isRequired
 }
 StickerPad.defaultProps = {
   stickers: []
 }
 
-export default DragDropContext(TouchBackend({ enableMouseEvents: true }))(StickerPad)
+export default DragDropContext(TouchBackend({enableMouseEvents: true}))(StickerPad)
