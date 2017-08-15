@@ -17,6 +17,7 @@ class StickerPad extends Component {
     return (
       <div style={{width: '100%', height: '100%', position: 'absolute'}}>
         <Pad
+          stickers={this.props.stickers}
           handleMoveSticker={this.props.handleMoveSticker}
           options={Object.assign({}, DEFAULT_OPTIONS, this.props.options)}
         />

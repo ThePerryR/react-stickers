@@ -44,8 +44,8 @@ class StickerDragLayer extends Component {
 
 StickerDragLayer.propTypes = {
   // props from react-dnd
-  item: PropTypes.object.isRequired,
-  currentOffset: PropTypes.object.isRequired,
+  item: PropTypes.object,
+  currentOffset: PropTypes.object,
   isDragging: PropTypes.bool.isRequired
 }
 
